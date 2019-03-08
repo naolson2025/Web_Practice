@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hello Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
-    <p></p>
+<div id="app">
+    <h1>Hello Vue</h1>
+    <!-- -->
+    <!--Takes the message from the Vue data and puts that information below-->
+    <p>{{message | uppercase}}</p>
+
+    <p>This message is {{message.length}} letters long</p>
+
+    <button v-on:click="addExclamation">Add some stuff</button>
+
+    <p>
+        My favorite animal is {{favoriteAnimal}}
+    </p>
+    <p>
+        I'm in a fun class {{thisClass}}
+    </p>
+</div>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Clock',
+            favoriteAnimal: 'panda',
+            thisClass: 'Web Programming'
+        },
+        methods: {
+            addExclamation: function(event) {
+                this.message += '!'
+            }
+        },
+        filters: {
+            uppercase: function(string) {
+                return string.toUpperCase()
+            }
+        }
+    })
+</script>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
